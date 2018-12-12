@@ -1,7 +1,7 @@
 # ld-react-feature-flags
 
 [![Build Status](https://travis-ci.org/lectra-tech/ld-react-feature-flags.svg?branch=master)](https://travis-ci.org/lectra-tech/ld-react-feature-flags)
-[![NPM](https://img.shields.io/npm/v/ld-react-feature-flags.svg)](https://www.npmjs.com/package/ld-react-feature-flags)
+[![NPM](https://img.shields.io/npm/v/@lectra/ld-react-feature-flags.svg)](https://www.npmjs.com/package/@lectra/ld-react-feature-flags)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 > Integrate Launch Darkly in your React app in a breeze
