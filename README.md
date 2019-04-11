@@ -11,7 +11,7 @@
 This project depends on React v16.3.0+
 
 ```bash
-npm install ld-react-feature-flags
+npm install @lectra/ld-react-feature-flags
 ```
 
 ## Getting Started
@@ -20,7 +20,7 @@ Wrap your root component with `FlagsProvider` to make LaunchDarkly client instan
 
 
 ```javascript
-import { FlagsProvider } from 'ld-react-feature-flags';
+import { FlagsProvider } from '@lectra/ld-react-feature-flags';
 
 ReactDOM.render(
   <FlagsProvider user={user} clientkey="myClientKey" loadingComponent ={<div>please wait</div>}>
@@ -62,7 +62,7 @@ fallbackRender | Function | false | Return the given component if the flag is in
 #### with children props
 
 ```javascript
-import { Flags } from 'ld-react-feature-flags';
+import { Flags } from '@lectra/ld-react-feature-flags';
 
 <Flags
   flag="beta-only"
@@ -74,7 +74,7 @@ import { Flags } from 'ld-react-feature-flags';
 #### with renderOn props
 
 ```javascript
-import { Flags } from 'ld-react-feature-flags';
+import { Flags } from '@lectra/ld-react-feature-flags';
 
 <Flags
   flag="beta-only"
@@ -85,7 +85,7 @@ import { Flags } from 'ld-react-feature-flags';
 #### with renderOn props and fallbackRender props as fallback
 
 ```javascript
-import { Flags } from 'ld-react-feature-flags';
+import { Flags } from '@lectra/ld-react-feature-flags';
 
 <Flags
   flag="beta-only"
@@ -105,7 +105,7 @@ If the flag is active, LD won't return a boolean value but instead a custom valu
 We can use it directly to style our `h1` title.
 
 ```javascript
-import { Flags } from 'ld-react-feature-flags';
+import { Flags } from '@lectra/ld-react-feature-flags';
 
 <Flags
   flag="header-bg-color"
@@ -134,7 +134,7 @@ ComponentToRenderIfFalse | React Component | false | The React component to rend
 #### Component render based on flag value
 
 ```javascript
-import { WithFlags } from 'ld-react-feature-flags';
+import { WithFlags } from '@lectra/ld-react-feature-flags';
 
 const HBeta = () => <h4>for beta users</h4>;
 const HeaderFeatureFlipped = WithFlags("beta-only")(HBeta)
@@ -145,7 +145,7 @@ const HeaderFeatureFlipped = WithFlags("beta-only")(HBeta)
 #### Component render toggled on flag value
 
 ```javascript
-import { WithFlags } from 'ld-react-feature-flags';
+import { WithFlags } from '@lectra/ld-react-feature-flags';
 
 const HBeta = () => <h4>for beta users</h4>;
 const HStandard = () => <h4>for standard users</h4>;
@@ -156,7 +156,7 @@ const HeaderFeatureFlipped = WithFlags("beta-only")(HBeta, HStandard)
 #### Component render with multivariant flag
 
 ```javascript
-import { WithFlags } from 'ld-react-feature-flags';
+import { WithFlags } from '@lectra/ld-react-feature-flags';
 
 const HeaderWithColor = ({headerBgColor}) => (
     <h1 style={{ color: headerBgColor }}>
