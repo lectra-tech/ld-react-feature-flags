@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
-## [1.0.22] - 2019-04-11
+## [1.0.23] - 2019-04-11
 ### Added
 - `FlagsContext` is now available as an import.
 
