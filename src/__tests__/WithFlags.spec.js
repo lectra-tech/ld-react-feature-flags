@@ -73,7 +73,6 @@ describe('WithFlags', () => {
       const HeaderFeatureFlipped = WithFlags('font-color')();
       const wrapper = mount(<HeaderFeatureFlipped />);
       expect(wrapper.find('h4').length).toBe(0);
-      expect(wrapper.html()).toBe(null);
     });
 
     it('should return the component A when flags is active (string)', () => {
