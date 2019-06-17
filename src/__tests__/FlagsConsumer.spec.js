@@ -175,4 +175,76 @@ describe('Flags', () => {
       expect(wrapper.find('h4').length).toBe(1);
     });
   });
+
+  describe('flags as JSON', () => {
+    it('should return the component or element given by renderOn props when flags is active (json)', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const wrapper = mount(
+        <Flags
+          flag="multi-variant-json"
+          renderOn={flag => <h4>for beta users</h4>}
+        />
+      );
+      expect(wrapper.find('h4').length).toBe(1);
+    });
+
+    it('should return the component or element given by children props when flags is active (json) and there no renderProps defined', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const wrapper = mount(
+        <Flags
+          flag="multi-variant-json"
+          fallbackRender={flag => (
+            <h4 className="fallbackRender">for regular users</h4>
+          )}
+        >
+          <h4 className="children">for beta users</h4>
+        </Flags>
+      );
+      expect(wrapper.find('h4.fallbackRender').length).toBe(0);
+      expect(wrapper.find('h4.children').prop('flag').multiVariantJson).toEqual(
+        {
+          test1: 1,
+          test2: 2
+        }
+      );
+      expect(wrapper.find('h4.children').length).toBe(1);
+    });
+
+    it('should return the component or element given by renderOn props when both renderOn and children props are defined and flags is active (json)', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const wrapper = mount(
+        <Flags
+          flag="multi-variant-json"
+          renderOn={flag => <h4 className="renderOn">for beta users</h4>}
+          fallbackRender={flag => (
+            <h4 className="fallbackRender">for regular users</h4>
+          )}
+        >
+          <h4 className="children">for beta users</h4>
+        </Flags>
+      );
+      expect(wrapper.find('h4.renderOn').length).toBe(1);
+      expect(wrapper.find('h4.children').length).toBe(0);
+      expect(wrapper.find('h4.fallbackRender').length).toBe(0);
+    });
+
+    it('should return the component or element given by renderOn props when flags is active (json)', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const wrapper = mount(
+        <Flags
+          flag="multi-variant-json"
+          renderOn={flag => <h4>for beta users</h4>}
+        />
+      );
+      expect(wrapper.find('h4').length).toBe(1);
+    });
+  });
 });

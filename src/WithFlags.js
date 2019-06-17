@@ -21,7 +21,7 @@ const WithFlags = key => (ComponentA, ComponentB = undefined) =>
               if (flagValue === false && ComponentB) {
                 return <ComponentB {...this.props} flags={featureProps} />;
               }
-              if (typeof flagValue === 'string' && ComponentA) {
+              if (typeof flagValue !== 'boolean' && ComponentA) {
                 return <ComponentA {...this.props} flags={featureProps} />;
               }
               return <React.Fragment />;

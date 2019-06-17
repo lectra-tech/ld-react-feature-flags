@@ -95,4 +95,46 @@ describe('WithFlags', () => {
       expect(wrapper.text()).toBe('for beta users');
     });
   });
+
+  describe('flags as JSON object', () => {
+    it('should return null when flags is active (json) and there is no component', () => {
+      const WithFlags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const HeaderFeatureFlipped = WithFlags('multi-variant-json')();
+      const wrapper = mount(<HeaderFeatureFlipped />);
+      expect(wrapper.find('h4').length).toBe(0);
+    });
+
+    it('should return the component A when flags is active (json)', () => {
+      const WithFlags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const HeaderFeatureFlipped = WithFlags('multi-variant-json')(HBeta);
+      const wrapper = mount(<HeaderFeatureFlipped />);
+      expect(wrapper.find('HBeta').prop('flags').multiVariantJson).toEqual({
+        test1: 1,
+        test2: 2
+      });
+      expect(wrapper.find('h4').length).toBe(1);
+      expect(wrapper.text()).toBe('for beta users');
+    });
+
+    it('should return the component A and not the component B when flags is active (json)', () => {
+      const WithFlags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const HeaderFeatureFlipped = WithFlags('multi-variant-json')(
+        HBeta,
+        HStandard
+      );
+      const wrapper = mount(<HeaderFeatureFlipped />);
+      expect(wrapper.find('HBeta').prop('flags').multiVariantJson).toEqual({
+        test1: 1,
+        test2: 2
+      });
+      expect(wrapper.find('h4').length).toBe(1);
+      expect(wrapper.text()).toBe('for beta users');
+    });
+  });
 });

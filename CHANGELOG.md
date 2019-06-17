@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.0.27] - 2019-06-17
+### Added
+- `JSON, Numbers and Strings` are now injected as props for multivariant flags.
+
 ## [1.0.25] - 2019-04-11
 ### Added
 - `FlagsContext` is now available as an import.

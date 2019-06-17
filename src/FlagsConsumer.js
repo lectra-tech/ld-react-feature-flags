@@ -27,13 +27,19 @@ export default class FlagsConsumer extends Component {
           };
           return (() => {
             if (flagValue === true) {
-              return this.props.renderOn(featureProps) || this.props.children;
+              return (
+                this.props.renderOn(featureProps) ||
+                React.cloneElement(this.props.children, { flag: featureProps })
+              );
             }
             if (flagValue === false) {
               return this.props.fallbackRender(featureProps) || null;
             }
-            if (typeof flagValue === 'string') {
-              return this.props.renderOn(featureProps) || this.props.children;
+            if (typeof flagValue !== 'boolean') {
+              return (
+                this.props.renderOn(featureProps) ||
+                React.cloneElement(this.props.children, { flag: featureProps })
+              );
             }
             return null;
           })();
