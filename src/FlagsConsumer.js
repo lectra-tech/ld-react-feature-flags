@@ -21,7 +21,7 @@ export default class FlagsConsumer extends Component {
     if (renderOn) {
       return renderOn(featureProps);
     }
-    if (children) {
+    if (children && typeof children) {
       return React.cloneElement(children, { flag: featureProps });
     }
     return React.Fragment;

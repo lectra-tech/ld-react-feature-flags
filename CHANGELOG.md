@@ -3,6 +3,10 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.0.29] - 2019-06-27
+### Add
+- Check on children type.
+
 ## [1.0.28] - 2019-06-27
 ### Fix
 - Fix a problem when no children and no renderOn are provided to the FlagsConsumer.
