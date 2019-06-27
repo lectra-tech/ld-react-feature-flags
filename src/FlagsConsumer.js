@@ -13,32 +13,45 @@ export default class FlagsConsumer extends Component {
   };
 
   static defaultProps = {
-    renderOn: () => null,
-    fallbackRender: () => null
+    renderOn: undefined,
+    fallbackRender: undefined
+  };
+
+  renderChildrenOrRenderOn = (featureProps, children, renderOn) => {
+    if (renderOn) {
+      return renderOn(featureProps);
+    }
+    if (children) {
+      return React.cloneElement(children, { flag: featureProps });
+    }
+    return React.Fragment;
   };
 
   render() {
+    const { flag, children, renderOn, fallbackRender } = this.props;
     return (
       <FlagsContext.Consumer>
         {ldClient => {
-          const flagValue = ldClient.variation(this.props.flag, false);
+          const flagValue = ldClient.variation(flag, false);
           const featureProps = {
-            [camelize(this.props.flag)]: flagValue
+            [camelize(flag)]: flagValue
           };
           return (() => {
             if (flagValue === true) {
-              return (
-                this.props.renderOn(featureProps) ||
-                React.cloneElement(this.props.children, { flag: featureProps })
+              return this.renderChildrenOrRenderOn(
+                featureProps,
+                children,
+                renderOn
               );
             }
             if (flagValue === false) {
-              return this.props.fallbackRender(featureProps) || null;
+              return fallbackRender ? fallbackRender(featureProps) : null;
             }
             if (typeof flagValue !== 'boolean') {
-              return (
-                this.props.renderOn(featureProps) ||
-                React.cloneElement(this.props.children, { flag: featureProps })
+              return this.renderChildrenOrRenderOn(
+                featureProps,
+                children,
+                renderOn
               );
             }
             return null;
