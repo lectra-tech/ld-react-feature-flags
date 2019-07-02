@@ -4,6 +4,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import url from 'rollup-plugin-url';
+import copy from 'rollup-plugin-cpy';
 
 import pkg from './package.json';
 
@@ -32,6 +33,13 @@ export default {
     resolve(),
     commonjs({
       include: 'node_modules/**'
+    }),
+    copy({
+      files: ['src/index.d.ts'],
+      dest: 'dist',
+      options: {
+        verbose: true
+      }
     })
   ]
 };
