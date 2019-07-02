@@ -1,6 +1,6 @@
 {
   "name": "@lectra/ld-react-feature-flags",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "Integrate Launch Darkly in your React app in a breeze",
   "contributors": [
     {
