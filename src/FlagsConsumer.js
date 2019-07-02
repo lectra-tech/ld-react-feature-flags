@@ -22,6 +22,7 @@ export default class FlagsConsumer extends Component {
       <FlagsContext.Consumer>
         {ldClient => {
           const flagValue = ldClient.variation(this.props.flag, false);
+
           const featureProps = {
             [camelize(this.props.flag)]: flagValue
           };
