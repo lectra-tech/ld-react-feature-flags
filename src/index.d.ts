@@ -35,4 +35,7 @@ declare module '@lectra/ld-react-feature-flags' {
     public async componentDidMount(): void;
     public render(): React.Element;
   }
+  interface WithFlagsProps<T> {
+    flags: T;
+  }
 }
