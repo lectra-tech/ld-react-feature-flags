@@ -32,6 +32,24 @@ describe('Flags', () => {
       expect(wrapper.find('h4').length).toBe(1);
     });
 
+    it('should return nothing when we have no children or renderProps and flags is active (true)', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => true)
+      });
+      const wrapper = mount(<Flags flag="beta-only" />);
+      expect(wrapper.find('Consumer').children().length).toBe(0);
+    });
+
+    it('should return nothing when we have a children with a condition and flags is active (true)', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => true)
+      });
+      const wrapper = mount(
+        <Flags flag="beta-only">{1 === 0 && <h4>for beta users</h4>}</Flags>
+      );
+      expect(wrapper.find('Consumer').children().length).toBe(0);
+    });
+
     it('should return the component or element given by children props when flags is active (true) and there no renderProps defined', () => {
       const Flags = getComponentWithContext({
         variation: jest.fn(() => true)
@@ -46,6 +64,7 @@ describe('Flags', () => {
           <h4 className="children">for beta users</h4>
         </Flags>
       );
+
       expect(wrapper.find('h4.fallbackRender').length).toBe(0);
       expect(wrapper.find('h4.children').length).toBe(1);
     });
@@ -188,6 +207,14 @@ describe('Flags', () => {
         />
       );
       expect(wrapper.find('h4').length).toBe(1);
+    });
+
+    it('should return nothing when we have no children or renderProps and flags is active (json)', () => {
+      const Flags = getComponentWithContext({
+        variation: jest.fn(() => ({ test1: 1, test2: 2 }))
+      });
+      const wrapper = mount(<Flags flag="multi-variant-json" />);
+      expect(wrapper.find('Consumer').children().length).toBe(0);
     });
 
     it('should return the component or element given by children props when flags is active (json) and there no renderProps defined', () => {
