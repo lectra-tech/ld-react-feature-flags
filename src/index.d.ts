@@ -17,6 +17,8 @@ declare module '@lectra/ld-react-feature-flags' {
     loadingComponent?: React.Element;
   }
 
+  export const FlagsContext: React.Context;
+
   export const WithFlags = <P extends object>(key: string) => (
     ComponentA: any,
     ComponentB?: React.ComponentType<P>
