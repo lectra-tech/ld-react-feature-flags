@@ -3,6 +3,10 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.0.31] - 2019-09-19
+### Fix
+- Type de finition for Flags are 
+
 ## [1.0.30] - 2019-07-02
 ### Add
 - Type definition added.
@@ -26,3 +30,4 @@ All notable changes to this project are documented in this file.
 ## [1.0.0] - 2018-11-19
 ### Added
 - `FlagsProvider`, `Flags` and `WithFlags` components to easily manage what your app will rendered based on your LaunchDarkly config. 
+
