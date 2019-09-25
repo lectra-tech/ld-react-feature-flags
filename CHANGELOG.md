@@ -3,7 +3,11 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
-## [1.0.31] - 2019-09-19
+## [1.0.34] - 2019-09-25
+### Fix
+- Type LDCClient for launch Darkly
+
+## [1.0.33] - 2019-09-19
 ### Fix
 - Type de finition for Flags are 
 

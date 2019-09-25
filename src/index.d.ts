@@ -1,3 +1,5 @@
+import { LDClient } from 'ldclient-js';
+
 declare module '@lectra/ld-react-feature-flags' {
   interface PropsFlag {
     children?: React.Element;
@@ -17,7 +19,7 @@ declare module '@lectra/ld-react-feature-flags' {
     loadingComponent?: React.Element;
   }
 
-  export const FlagsContext: React.Context;
+  export const FlagsContext: React.Context<LDClient>;
 
   export const WithFlags = <P extends object>(key: string) => (
     ComponentA: any,
