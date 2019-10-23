@@ -1,6 +1,6 @@
 {
   "name": "@lectra/ld-react-feature-flags",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "Integrate Launch Darkly in your React app in a breeze",
   "contributors": [
     {
@@ -51,6 +51,7 @@
     "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",

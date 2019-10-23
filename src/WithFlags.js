@@ -11,7 +11,9 @@ const WithFlags = key => (ComponentA, ComponentB = undefined) =>
           {ldClient => {
             const flagValue = ldClient.variation(key, false);
             this.camelFlag = camelize(key);
+            const initialFlags = this.props.flags || {};
             const featureProps = {
+              ...initialFlags,
               [this.camelFlag]: flagValue
             };
             return (() => {

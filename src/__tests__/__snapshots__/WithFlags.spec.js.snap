@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Previous props Flags souhld be merged with current Flag 1`] = `
+<togglerHOC
+  flags={
+    Object {
+      "prevousFlag": true,
+    }
+  }
+>
+  <Consumer>
+    <HBeta
+      flags={
+        Object {
+          "betaOnly": true,
+          "prevousFlag": true,
+        }
+      }
+    >
+      <h4>
+        for beta users
+      </h4>
+    </HBeta>
+  </Consumer>
+</togglerHOC>
+`;
