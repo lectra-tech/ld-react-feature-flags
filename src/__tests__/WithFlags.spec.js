@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 const HBeta = () => <h4>for beta users</h4>;
 const HStandard = () => <h4>for standard user</h4>;
@@ -22,6 +23,19 @@ const getComponentWithContext = context => {
   // return the updated Component module that now includes the mocked context
   return require('../WithFlags').default;
 };
+
+describe('Previous props Flags', () => {
+  it('souhld be merged with current Flag', () => {
+    const WithFlags = getComponentWithContext({
+      variation: jest.fn(() => true)
+    });
+    const HeaderFeatureFlipped = WithFlags('beta-only')(HBeta);
+    const wrapper = mount(
+      <HeaderFeatureFlipped flags={{ prevousFlag: true }} />
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+});
 
 describe('WithFlags', () => {
   describe('flags as boolean', () => {

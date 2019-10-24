@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { camelize } from './helpers/tools';
 import { FlagsContext } from './FlagsContext';
 
 const WithFlags = key => (ComponentA, ComponentB = undefined) =>
   class togglerHOC extends Component {
+    static propTypes = {
+      flags: PropTypes.any
+    };
+    static defaultProps = {
+      flags: {}
+    };
     render() {
       return (
         <FlagsContext.Consumer>
           {ldClient => {
             const flagValue = ldClient.variation(key, false);
             this.camelFlag = camelize(key);
+            const initialFlags = this.props.flags;
             const featureProps = {
+              ...initialFlags,
               [this.camelFlag]: flagValue
             };
             return (() => {
