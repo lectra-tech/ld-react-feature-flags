@@ -3,14 +3,14 @@ import { LDClient } from 'ldclient-js';
 
 declare module '@lectra/ld-react-feature-flags' {
   interface PropsFlag {
-    children?: React.ReactElement;
+    children?: React.ReactNode;
     flag: string;
     renderOn?: (flag: any) => any;
     fallbackRender?: (flag: any) => any;
   }
 
   interface PropsFlagProvider {
-    children: React.ReactElement;
+    children: React.ReactNode;
     user: {
       key: string;
     };
