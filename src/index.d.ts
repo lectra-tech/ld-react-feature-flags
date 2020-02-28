@@ -22,10 +22,9 @@ declare module '@lectra/ld-react-feature-flags' {
 
   export const FlagsContext: React.Context<LDClient>;
 
-  export const WithFlags = <P extends object>(key: string) => (
-    ComponentA: any,
-    ComponentB?: any
-  ) => JSX.Element;
+  export const WithFlags: (
+    key: string
+  ) => (ComponentA: any, ComponentB?: any) => () => JSX.Element;
 
   export class Flags extends React.Component<PropsFlag> {
     public render(): React.ReactElement;
@@ -37,7 +36,7 @@ declare module '@lectra/ld-react-feature-flags' {
     { isFlagsLoaded: boolean }
   > {
     public LDReadyEvent(): Promise<any>;
-    public async componentDidMount(): void;
+    public componentDidMount(): void;
     public render(): React.ReactElement;
   }
   interface WithFlagsProps<T> {
