@@ -3,7 +3,7 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
-## [1.0.36] - 2020-02-28
+## [1.0.37] - 2020-02-28
 ### Fix
 - Another type definition fix
 
