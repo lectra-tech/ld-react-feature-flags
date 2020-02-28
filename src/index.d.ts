@@ -1,22 +1,23 @@
+import React from 'react';
 import { LDClient } from 'ldclient-js';
 
 declare module '@lectra/ld-react-feature-flags' {
   interface PropsFlag {
-    children?: React.Element;
+    children?: React.ReactElement;
     flag: string;
     renderOn?: (flag: any) => any;
     fallbackRender?: (flag: any) => any;
   }
 
   interface PropsFlagProvider {
-    children: React.Element;
+    children: React.ReactElement;
     user: {
       key: string;
     };
     clientkey?: string;
     bootstrap?: object;
     onFlagsChange?: () => any;
-    loadingComponent?: React.Element;
+    loadingComponent?: React.ReactElement;
   }
 
   export const FlagsContext: React.Context<LDClient>;
@@ -27,7 +28,7 @@ declare module '@lectra/ld-react-feature-flags' {
   ) => JSX.Element;
 
   export class Flags extends React.Component<PropsFlag> {
-    public render(): React.Element;
+    public render(): React.ReactElement;
   }
 
   // tslint:disable-next-line:max-classes-per-file
@@ -37,7 +38,7 @@ declare module '@lectra/ld-react-feature-flags' {
   > {
     public LDReadyEvent(): Promise<any>;
     public async componentDidMount(): void;
-    public render(): React.Element;
+    public render(): React.ReactElement;
   }
   interface WithFlagsProps<T> {
     flags: T;
