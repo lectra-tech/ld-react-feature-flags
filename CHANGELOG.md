@@ -3,6 +3,10 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.0.38] - 2020-04-14
+### Fix
+- fix definition type for WithFlags component
+
 ## [1.0.37] - 2020-02-28
 ### Fix
 - Another type definition fix
