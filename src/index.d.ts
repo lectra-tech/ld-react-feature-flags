@@ -24,7 +24,7 @@ declare module '@lectra/ld-react-feature-flags' {
 
   export const WithFlags: (
     key: string
-  ) => (ComponentA: any, ComponentB?: any) => () => JSX.Element;
+  ) => (ComponentA: any, ComponentB?: any) => (props: any) => JSX.Element;
 
   export class Flags extends React.Component<PropsFlag> {
     public render(): React.ReactElement;
