@@ -8,7 +8,8 @@ export default class FlagsProvider extends Component {
   static propTypes = {
     children: PropTypes.any,
     user: PropTypes.shape({
-      key: PropTypes.string
+      key: PropTypes.string,
+      custom: PropTypes.object
     }).isRequired,
     clientkey: PropTypes.string.isRequired,
     bootstrap: PropTypes.object,
