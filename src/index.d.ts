@@ -13,6 +13,7 @@ declare module '@lectra/ld-react-feature-flags' {
     children: React.ReactNode;
     user: {
       key: string;
+      custom: object;
     };
     clientkey?: string;
     bootstrap?: object;
