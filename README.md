@@ -8,7 +8,7 @@
 
 ## Install
 
-This project requires **React 16.8.3 or later**.
+This project requires **React 16.3.0 or later**.
 
 To use ld-react-feature-flags with your React app, install it as a dependency:
 
