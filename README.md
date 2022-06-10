@@ -32,12 +32,12 @@ ReactDOM.render(
 );
 ```
 
-Prop | Type | Required | Description
---- | --- | --- | ---
-user | Object | true | User information
-clientkey | String | true | Your LaunchDarkly secret key
-onFlagsChange | function | false | Handler for flag change
-loadingComponent  | Component | false | Loading component / string
+| Prop             | Type      | Required | Description                  |
+|------------------|-----------|----------|------------------------------|
+| user             | Object    | true     | User information             |
+| clientkey        | String    | true     | Your LaunchDarkly secret key |
+| onFlagsChange    | function  | false    | Handler for flag change      |
+| loadingComponent | Component | false    | Loading component / string   |
 
 ### Flags
 All `Flags` components get the _ldClient_ instance thanks to the `FlagsProvider` component.
@@ -53,13 +53,12 @@ You have the control on what will be rendered:
 * If the flag isn't active, nothing will be rendered unless you pass a component as fallback by the `fallbackRender` props.
 
 
-Prop | Type | Required | Description
---- | --- | --- | ---
-flag | String | true | The flag to check
-children | Element/Component | false | Return the component if the flag given by props is active
-renderOn | Function | false | Return the given component if the flag is active
-fallbackRender | Function | false | Return the given component if the flag is inactive
-
+| Prop           | Type              | Required | Description                                               |
+|----------------|-------------------|----------|-----------------------------------------------------------|
+| flag           | String            | true     | The flag to check                                         |
+| children       | Element/Component | false    | Return the component if the flag given by props is active |
+| renderOn       | Function          | false    | Return the given component if the flag is active          |
+| fallbackRender | Function          | false    | Return the given component if the flag is inactive        |
 
 #### with children props
 
@@ -127,11 +126,11 @@ Same as `Flags` components but in a Higher Order Component way.
 `WithFlags([flag])([ComponentToRenderIfTrue][ComponentToRenderIfFalse])`
 
 
-Arguments | Type | Required | Description
---- | --- | --- | ---
-flag | String | true | The flag to check
-ComponentToRenderIfTrue | React Component | true | The React component to render if the flag is true or is a multivariant flag
-ComponentToRenderIfFalse | React Component | false | The React component to render if the flag is false
+| Arguments                | Type            | Required | Description                                                                 |
+|--------------------------|-----------------|----------|-----------------------------------------------------------------------------|
+| flag                     | String          | true     | The flag to check                                                           |
+| ComponentToRenderIfTrue  | React Component | true     | The React component to render if the flag is true or is a multivariant flag |
+| ComponentToRenderIfFalse | React Component | false    | The React component to render if the flag is false                          |
 
 #### Component render based on flag value
 
