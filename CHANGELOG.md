@@ -3,6 +3,9 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.2.0] - 2020-11-30
+This release allows you to use ld-react-feature-flags with React 18 without a warning when installing.
+
 ## [1.1.0] - 2020-11-30
 This release allows you to use ld-react-feature-flags with React 17 without a warning when installing.
 
