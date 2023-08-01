@@ -1,5 +1,5 @@
 import React from 'react';
-import { LDClient } from 'ldclient-js';
+import { LDClient } from 'launchdarkly-js-client-sdk';
 
 declare module '@lectra/ld-react-feature-flags' {
   interface PropsFlag {
