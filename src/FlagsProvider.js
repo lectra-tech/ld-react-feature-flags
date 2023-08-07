@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { initialize as Client } from 'ldclient-js';
+import { initialize as Client } from 'launchdarkly-js-client-sdk';
 
 import { FlagsContext } from './FlagsContext';
 
@@ -33,7 +33,15 @@ export default class FlagsProvider extends Component {
 
   async componentDidMount() {
     const { clientkey, user, bootstrap, onFlagsChange } = this.props;
-    this.ldClient = await Client(clientkey, user, bootstrap);
+    this.ldClient = await Client(
+      clientkey,
+      {
+        kind: 'user',
+        key: user.key,
+        ...user.custom
+      },
+      bootstrap
+    );
     await this.LDReadyEvent(this.ldClient);
 
     if (onFlagsChange) {

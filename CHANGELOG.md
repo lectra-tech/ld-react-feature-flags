@@ -3,6 +3,9 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.3.0] - 2023-08-01
+This release uses the new LaunchDarkly Javascript SDK.
+
 ## [1.2.0] - 2020-11-30
 This release allows you to use ld-react-feature-flags with React 18 without a warning when installing.
 

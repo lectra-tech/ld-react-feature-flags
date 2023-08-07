@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import FlagsProvider from '../FlagsProvider';
 
-jest.mock('ldclient-js', () => {
+jest.mock('launchdarkly-js-client-sdk', () => {
   return {
     initialize: jest.fn().mockImplementation(() => {
       return Promise.resolve({

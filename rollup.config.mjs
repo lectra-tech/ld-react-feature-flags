@@ -1,12 +1,14 @@
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import resolve from 'rollup-plugin-node-resolve';
-import url from 'rollup-plugin-url';
+import resolve from '@rollup/plugin-node-resolve';
+import url from '@rollup/plugin-url';
 import copy from 'rollup-plugin-cpy';
 
-import pkg from './package.json';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const pkg = require('./package.json');
 
 export default {
   input: 'src/index.js',
@@ -17,7 +19,7 @@ export default {
     },
     {
       file: pkg.module,
-      format: 'es'
+      format: 'esm'
     }
   ],
   plugins: [
@@ -27,7 +29,7 @@ export default {
     }),
     url(),
     babel({
-      runtimeHelpers: true,
+      babelHelpers: 'runtime',
       exclude: 'node_modules/**'
     }),
     resolve(),
