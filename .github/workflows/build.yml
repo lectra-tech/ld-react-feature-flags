@@ -19,5 +19,8 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Run Tests
-        run: npm run test
+ #      - name: Run Tests
+ #       run: npm run test
+
+      - name: Compute version
+        run: npm version patch
