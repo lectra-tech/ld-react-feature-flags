@@ -16,8 +16,16 @@ jobs:
         with:
           node-version: 'lts/gallium'
 
+      - name: Update project version
+        run: |
+          git config --global user.name "Lectra CI User"
+          git config --global user.email "lectra.ci.user@lectra.com"
+          npm version patch
+          
+
       - name: Install dependencies
         run: npm install
       
  #      - name: Run Tests
  #       run: npm run test      
+      
