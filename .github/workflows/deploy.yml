@@ -2,8 +2,8 @@ name: Build branches
 
 on:
   push:
-    branches:
-      - 'master'
+    branches-ignore:
+        - master
 
 jobs:
   build:
