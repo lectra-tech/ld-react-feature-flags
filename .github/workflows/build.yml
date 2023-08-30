@@ -23,4 +23,7 @@ jobs:
  #       run: npm run test
 
       - name: Compute version
-        run: npm version patch
+        run: |
+          git config --global user.name "Lectra CI User"
+          git config --global user.email "lectra.ci.user@lectra.com"
+          npm version patch
