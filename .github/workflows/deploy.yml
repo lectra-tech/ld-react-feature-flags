@@ -22,10 +22,14 @@ jobs:
           git config --global user.name "Lectra CI User"
           git config --global user.email "lectra.ci.user@lectra.com"
           npm version patch
-          
+      
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
       - name: Update project version
         run: |
-          echo ${{ steps.compute_version.outputs }}
+          echo ${{ steps.compute_version.outputs.current-version }}
             
             
           
