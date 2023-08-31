@@ -17,15 +17,27 @@ jobs:
           node-version: 'lts/gallium'
 
       - name: Update project version
+        id: compute_version
         run: |
           git config --global user.name "Lectra CI User"
           git config --global user.email "lectra.ci.user@lectra.com"
           npm version patch
           
+      - name: Update project version
+        run: |
+          echo ${{ steps.compute_version.outputs }}
+            
+            
+          
 
-      - name: Install dependencies
-        run: npm install
+#      - name: Install dependencies
+#        run: npm install
       
  #      - name: Run Tests
- #       run: npm run test      
+ #       run: npm run test     
+
+#      - name: Commit and Push
+#        run: | 
+#          git push origin HEAD:main
+#          git push origin HEAD:main --tags; 
       
