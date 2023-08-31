@@ -1,4 +1,4 @@
-name: Build branches
+name: Deploy Workflow
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
         - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Scm
@@ -16,8 +16,7 @@ jobs:
         with:
           node-version: 'lts/gallium'
 
-      - name: Update project version
-        id: compute_version
+      - name: Update project version        
         run: |
           git config --global user.name "Lectra CI User"
           git config --global user.email "lectra.ci.user@lectra.com"
@@ -29,7 +28,7 @@ jobs:
 
       - name: Update project version
         run: |
-          echo ${{ steps.compute_version.outputs.current-version }}
+          echo ${{ steps.package-version.outputs.current-version }}
             
             
           
