@@ -16,17 +16,17 @@ jobs:
         with:
           node-version: 'lts/gallium'
 
-      - name: Update project version        
+      - name: Update project version
         run: |
           git config --global user.name "Lectra CI User"
           git config --global user.email "lectra.ci.user@lectra.com"
           npm version patch
       
-      - name: get-npm-version
+      - name: Get project Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
 
-      - name: Update project version
+      - name: Show project version
         run: |
           echo ${{ steps.package-version.outputs.current-version }}
             
@@ -43,4 +43,11 @@ jobs:
 #        run: | 
 #          git push origin HEAD:main
 #          git push origin HEAD:main --tags; 
+
+     # - name: Create a GitHub release
+      #  uses: ncipollo/release-action@v1
+       # with:
+      #    tag: ${{ steps.package-version.outputs.current-version }}
+       #   name: ${{ steps.package-version.outputs.current-version }}
+       #   body: ${{ steps.package-version.outputs.current-version }}
       
