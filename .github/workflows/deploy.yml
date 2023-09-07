@@ -1,9 +1,8 @@
-name: Deploy Workflow
+name: Publish Package to npmjs
 
 on:
-  push:
-    branches-ignore:
-        - master
+  release:
+    types: [created]
 
 jobs:
   deploy:
@@ -11,16 +10,11 @@ jobs:
     steps:
       - name: Checkout Scm
         uses: actions/checkout@v3
+      
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/gallium'
-
-      - name: Update project version
-        run: |
-          git config --global user.name "Lectra CI User"
-          git config --global user.email "lectra.ci.user@lectra.com"
-          npm version patch
+          node-version: 'lts/gallium'      
       
       - name: Get project Version
         id: package-version
@@ -28,26 +22,15 @@ jobs:
 
       - name: Show project version
         run: |
-          echo ${{ steps.package-version.outputs.current-version }}
-            
-            
-          
+          echo "Publish version => ${{ steps.package-version.outputs.current-version }}"
 
       - name: Install dependencies
         run: npm install
       
  #      - name: Run Tests
- #       run: npm run test     
+ #       run: npm run test
 
-#      - name: Commit and Push
-#        run: | 
-#          git push origin HEAD:main
-#          git push origin HEAD:main --tags; 
-
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: v${{ steps.package-version.outputs.current-version }}
-          name: v${{ steps.package-version.outputs.current-version }}
-          body: v${{ steps.package-version.outputs.current-version }}
-      
+      #- name: Publish Package to npmjs
+      #- run: npm publish
+      #  env:
+       #   NODE_AUTH_TOKEN:  ${{ secrets.NPM_TOKEN }}
