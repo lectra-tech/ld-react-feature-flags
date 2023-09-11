@@ -1,0 +1,36 @@
+name: Publish Package
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Scm
+        uses: actions/checkout@v3
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/gallium'      
+      
+      - name: Get project Version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - name: Show project version
+        run: |
+          echo "Publish version => ${{ steps.package-version.outputs.current-version }}"
+
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run Tests
+        run: npm run test
+
+      #- name: Publish Package to npmjs
+      #- run: npm publish
+      #  env:
+       #   NODE_AUTH_TOKEN:  ${{ secrets.NPM_TOKEN }}
