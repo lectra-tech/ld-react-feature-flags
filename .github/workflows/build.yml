@@ -20,5 +20,6 @@ jobs:
           node-version: 'lts/gallium'
       
       - name: Run Tests
-      - run: npm install
-      - run: npm run test
+        run: |
+          npm install
+          npm run test
