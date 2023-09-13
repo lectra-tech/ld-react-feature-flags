@@ -1,4 +1,4 @@
-name: Publish Package
+name: Build And Publish Package
 
 on:
   push:
@@ -11,12 +11,12 @@ on:
     types: [published]
 
 jobs:
-  deploy:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Scm
         uses: actions/checkout@v3    
-          
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
