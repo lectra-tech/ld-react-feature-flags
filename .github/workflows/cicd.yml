@@ -1,6 +1,12 @@
 name: Publish Package
 
 on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
   release:
     types: [published]
 
@@ -9,17 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Scm
-        uses: actions/checkout@v3      
+        uses: actions/checkout@v3    
+          
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 'lts/gallium'
           registry-url: 'https://registry.npmjs.org'
+
       - name: Run Tests
         run: |
           npm install
           npm run test
+
       - name: Publish Package to npmjs
+        if: github.event.action == 'published'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN:  ${{ secrets.NPM_TOKEN }}
