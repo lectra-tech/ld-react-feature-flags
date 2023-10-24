@@ -39,6 +39,21 @@ ReactDOM.render(
 | onFlagsChange    | function  | false    | Handler for flag change      |
 | loadingComponent | Component | false    | Loading component / string   |
 
+The `user` object can have any of the following properties:
+
+| Prop             | Type      | Description                                   |
+|------------------|-----------|-----------------------------------------------|
+| key              | String    | A unique string identifying the user context  |
+| name             | String    | The name given to the user context            |
+| firstName        | String    | User's first name                             |
+| lastName         | String    | User's last name                              |
+| email            | String    | User's email address                          |
+| avatar           | String    | URL to user's avatar image                    |
+| ip               | String    | IP address of user                            |
+| country          | String    | User country                                  |
+| anonymous        | Boolean   | If true, hide the context in LaunchDarkly     |
+| custom           | Object    | Custom metadata of the user                   |
+
 ### Flags
 All `Flags` components get the _ldClient_ instance thanks to the `FlagsProvider` component.
 
