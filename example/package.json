@@ -22,7 +22,8 @@
     "format": "prettier --config .prettierrc --write \"./src/**/*.{js,css,json}\""
   },
   "devDependencies": {
-    "prettier": "1.13.6"
+    "prettier": "1.13.6",
+    "typescript": "^4.9.5"
   },
   "browserslist": {
     "production": [
