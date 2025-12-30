@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          npm install
+          npm ci
           npm run test
 
       - name: Publish Package to npmjs
