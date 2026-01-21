@@ -5,8 +5,8 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^1.5.1",
-    "@material-ui/icons": "^2.0.3",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "ld-react-feature-flags": "^1.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
