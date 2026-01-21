@@ -1,1 +1,1 @@
-export const CLIENT_SIDE_ID = 'youreclientsideidhere';
+export const CLIENT_SIDE_ID = 'your-client-side-id-here';

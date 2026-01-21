@@ -1,6 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { FlagsProvider } from 'ld-react-feature-flags';
+import { createRoot } from 'react-dom/client';
+import { FlagsProvider } from '@lectra/ld-react-feature-flags';
 import '../node_modules/highlight.js/styles/monokai-sublime.css';
 import './index.css';
 import App from './App';
@@ -15,9 +14,10 @@ const user1 = {
   name: 'j.doe@lectra.com'
 };
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+
+root.render(
   <FlagsProvider user={user1} clientkey={CLIENT_SIDE_ID}>
     <App />
-  </FlagsProvider>,
-  document.getElementById('root')
+  </FlagsProvider>
 );

@@ -5,25 +5,28 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^1.5.1",
-    "@material-ui/icons": "^2.0.3",
-    "ld-react-feature-flags": "^1.0.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-highlight": "^0.12.0",
-    "react-scripts": "^5.0.1"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@lectra/ld-react-feature-flags": "^1.4.0",
+    "@mui/material": "^7.3.7",
+    "@mui/icons-material": "^7.3.7",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-highlight": "^0.15.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "format": "prettier --config .prettierrc --write \"./src/**/*.{js,css,json}\""
   },
   "devDependencies": {
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "prettier": "1.13.6",
-    "typescript": "^4.9.5"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   },
   "browserslist": {
     "production": [
