@@ -9,6 +9,14 @@ export default class FlagsProvider extends Component {
     children: PropTypes.any,
     user: PropTypes.shape({
       key: PropTypes.string,
+      name: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      email: PropTypes.string,
+      avatar: PropTypes.string,
+      ip: PropTypes.string,
+      country: PropTypes.string,
+      anonymous: PropTypes.bool,
       custom: PropTypes.object
     }).isRequired,
     clientkey: PropTypes.string.isRequired,
@@ -37,8 +45,7 @@ export default class FlagsProvider extends Component {
       clientkey,
       {
         kind: 'user',
-        key: user.key,
-        ...user.custom
+        ...user
       },
       bootstrap
     );
