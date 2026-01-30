@@ -3,6 +3,9 @@ import FlagsConsumer from "./src/FlagsConsumer";
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [1.4.1] - 2026-01-30
+Update the Example application in the project to React 19.
+
 ## [1.4.0] - 2025-12-30
 This release allows you to use ld-react-feature-flags with React 19 without a warning when installing.
 
@@ -62,4 +65,3 @@ This release allows you to use ld-react-feature-flags with React 17 without a wa
 ## [1.0.0] - 2018-11-19
 ### Added
 - `FlagsProvider`, `Flags` and `WithFlags` components to easily manage what your app will rendered based on your LaunchDarkly config.
-
