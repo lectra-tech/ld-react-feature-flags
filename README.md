@@ -17,11 +17,15 @@ npm install @lectra/ld-react-feature-flags
 ```
 
 ## Getting Started
+
 ### FlagsProvider
+
 Wrap your root component with `FlagsProvider` to make LaunchDarkly client instance accessible to all children components thanks to React context.
 
-
 ```javascript
+// React 17 and lower
+
+import ReactDOM from 'react-dom';
 import { FlagsProvider } from '@lectra/ld-react-feature-flags';
 
 ReactDOM.render(
@@ -29,6 +33,21 @@ ReactDOM.render(
     <App />
   </FlagsProvider>,
   document.getElementById('root')
+);
+```
+
+```javascript
+// React 18 and higher
+
+import { createRoot } from 'react-dom/client';
+import { FlagsProvider } from '@lectra/ld-react-feature-flags';
+
+const root = createRoot(document.getElementById('root'));
+
+root.render(
+  <FlagsProvider user={user} clientkey="myClientKey" loadingComponent ={<div>please wait</div>}>
+    <App />
+  </FlagsProvider>
 );
 ```
 
@@ -40,6 +59,7 @@ ReactDOM.render(
 | loadingComponent | Component | false    | Loading component / string   |
 
 ### Flags
+
 All `Flags` components get the _ldClient_ instance thanks to the `FlagsProvider` component.
 
 To render a node or a component based on your flags, you must pass a `flag` props.
@@ -121,6 +141,7 @@ import { Flags } from '@lectra/ld-react-feature-flags';
 ```
 
 ### WithFlags
+
 Same as `Flags` components but in a Higher Order Component way.
 
 `WithFlags([flag])([ComponentToRenderIfTrue][ComponentToRenderIfFalse])`
@@ -154,6 +175,7 @@ const HeaderFeatureFlipped = WithFlags("beta-only")(HBeta, HStandard)
 
 <HeaderFeatureFlipped></HeaderFeatureFlipped>
 ```
+
 #### Component render with multivariant flag
 
 ```javascript
@@ -170,6 +192,7 @@ const HeaderFeatureFlippedWithColor = WithFlags("header-bg-color")(HeaderWithCol
 
 
 ## Example
+
 This project contains some examples that you could run.
 
 ```bash
@@ -180,5 +203,5 @@ npm start
 ```
 
 ## License
-MIT
 
+MIT

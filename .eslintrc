@@ -1,6 +1,7 @@
 {
   "parser": "@babel/eslint-parser",
   "extends": ["standard", "standard-react"],
+  "ignorePatterns": ["example/**"],
   "env": {
     "es6": true,
     "browser": true,
